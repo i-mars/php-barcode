@@ -11,7 +11,7 @@
 	
 	// Get pararameters that are passed in through $_GET or set to the default value
 	$text = (isset($_GET["text"])?$_GET["text"]:"0");
-	$size = (isset($_GET["size"])?$_GET["size"]:"20");
+	$size = (isset($_GET["size"])?$_GET["size"]:"20"); // height image
 	$orientation = (isset($_GET["orientation"])?$_GET["orientation"]:"horizontal");
 	$code_type = (isset($_GET["codetype"])?$_GET["codetype"]:"code128");
 	$code_string = "";
@@ -110,5 +110,13 @@
 	// Draw barcode to the screen
 	header ('Content-type: image/png');
 	imagepng($image);
+	
+	// OR save image in folder
+	
+	// imagejpeg($image, $text',90);
+	// imagepng($image, $text.'.png');
+	// imagegif($image, $text.'.png');
+
+	
 	imagedestroy($image);
 ?>
